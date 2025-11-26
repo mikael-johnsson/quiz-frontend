@@ -17,3 +17,11 @@ export const getVercelData = () => {
       });
     });
 };
+
+export const getVercelDataOne = () => {
+  fetch("https://quiz-backend-one-alpha.vercel.app/api/questions/1")
+    .then((res) => res.json())
+    .then((data: testQuestion) => {
+      console.log("This is question 1: ", data);
+    });
+};
