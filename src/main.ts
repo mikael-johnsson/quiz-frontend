@@ -1,5 +1,6 @@
 import type { QuestionResponse } from "./models/questionResponse";
 import "./style.css";
+import { getVercelData } from "./testingBE";
 import { clearHtml, createHtml } from "./utils/HtmlUtils";
 
 let chosenTheme: any; //fix this
@@ -36,3 +37,4 @@ const checkTheme = () => {
 };
 
 checkTheme();
+getVercelData();
