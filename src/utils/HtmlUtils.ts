@@ -1,4 +1,4 @@
-import type { Question } from "../models/question";
+import type { Question } from "../types/question";
 
 export const createHtml = (question: Question) => {
   const questionsContainer = document.getElementById("questionsContainer");

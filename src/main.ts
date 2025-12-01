@@ -1,4 +1,4 @@
-import type { QuestionResponse } from "./models/questionResponse";
+import type { QuestionResponse } from "./types/questionResponse";
 import "./style.css";
 import { getVercelData, getVercelDataOne } from "./testingBE";
 import { clearHtml, createHtml } from "./utils/HtmlUtils";
@@ -37,5 +37,5 @@ const checkTheme = () => {
 };
 
 checkTheme();
-// getVercelData(); //testing backend api, logs all hard coded questions
-getVercelDataOne();
+getVercelData(); //testing backend api, logs all hard coded questions
+// getVercelDataOne();
