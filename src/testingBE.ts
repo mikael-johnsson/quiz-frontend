@@ -20,7 +20,7 @@ export const getVercelData = () => {
 
 // den här url:en svara endast om man är på port 5173
 export const getVercelDataOne = () => {
-  fetch("https://quiz-backend-one-alpha.vercel.app/api/questions/1")
+  fetch("https://quiz-backend-one-alpha.vercel.app/api/questions/12")
     .then((res) => res.json())
     .then((data: testQuestion) => {
       console.log("This is question 1: ", data);

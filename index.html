@@ -10,21 +10,23 @@
   </head>
   <body>
     <main id="main">
-      <form id="theme-form" name="theme-form">
+      <form id="search-form">
         <fieldset>
-          <legend>Choose a theme:</legend>
-
-          <label for="sport">Sport</label>
-          <input type="radio" id="sport" name="theme" value="sport" />
-
-          <label for="sverige">Sverige</label>
-          <input type="radio" id="sverige" name="theme" value="sverige" />
-
-          <label for="kemi">Kemi</label>
-          <input type="radio" id="kemi" name="theme" value="kemi" />
+          <label for="theme-input">Sök på tema:</label>
+          <input type="text" id="theme-input" placeholder="Sverige" />
+        </fieldset>
+        <fieldset>
+          <legend>Select difficulty:</legend>
+          <input type="radio" value="easy" name="difficulty" />
+          <label for="easy">Easy</label>
+          <input type="radio" value="medium" name="difficulty" />
+          <label for="medium">Medium</label>
+          <input type="radio" value="hard" name="difficulty" />
+          <label for="hard">Hard</label>
         </fieldset>
         <button id="fetch-button">Hämta frågor</button>
       </form>
+
       <div id="questionsContainer"></div>
     </main>
   </body>

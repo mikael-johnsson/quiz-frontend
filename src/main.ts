@@ -1,41 +1,15 @@
-import type { QuestionResponse } from "./types/questionResponse";
+import { getData } from "./services/serviceBase";
 import "./style.css";
-import { getVercelData, getVercelDataOne } from "./testingBE";
-import { clearHtml, createHtml } from "./utils/HtmlUtils";
+import { checkChosenDifficulty } from "./utils/checkChosenDifficulty";
 
-let chosenTheme: any; //fix this
+const searchForm = document.getElementById("search-form");
 
-const fetchButton = document.getElementById("fetch-button");
+searchForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-fetchButton?.addEventListener("click", () => {
-  fetch("data/fakeDB.json")
-    .then((res) => res.json())
-    .then((data: QuestionResponse) => {
-      clearHtml();
-      const questions = data.questions;
+  const input = document.getElementById("theme-input") as HTMLInputElement;
+  const theme: string = input.value;
+  const difficulty: string = checkChosenDifficulty();
 
-      let chosenQuestions = questions.filter((question) =>
-        question.theme.includes(chosenTheme)
-      );
-
-      // display a random question three times
-      for (let i = 0; i < chosenQuestions.length; i++) {
-        let randomX = Math.floor(Math.random() * chosenQuestions.length);
-        createHtml(chosenQuestions[randomX]);
-      }
-    });
+  getData(theme, difficulty);
 });
-
-const checkTheme = () => {
-  const themeForm = document.getElementById("theme-form") as HTMLFormElement;
-
-  themeForm?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(themeForm);
-    chosenTheme = formData.get("theme");
-  });
-};
-
-checkTheme();
-getVercelData(); //testing backend api, logs all hard coded questions
-// getVercelDataOne();
