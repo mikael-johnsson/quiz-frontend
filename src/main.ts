@@ -12,8 +12,8 @@ searchForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const input = document.getElementById("theme-input") as HTMLInputElement;
-  const theme: string = input.value;
-  const difficulty: string = checkChosenDifficulty();
+  const themes: string[] = [input.value];
+  const difficulties: string[] = checkChosenDifficulty();
 
-  getData(theme, difficulty, DEV_URL);
+  getData(themes, difficulties, DEV_URL);
 });

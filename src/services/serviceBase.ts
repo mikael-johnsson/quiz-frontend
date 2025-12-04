@@ -1,14 +1,17 @@
 import type { QuestionResponse } from "../types/questionResponse";
+import { buildUrl } from "../utils/buildUrl";
 import { clearHtml, createErrorMsg, createHtml } from "../utils/HtmlUtils";
 
 export const getData = async (
-  theme: string,
-  difficulty: string,
+  themes: string[],
+  difficulties: string[],
   URL: string
 ) => {
-  await fetch(`${URL}theme=${theme}&difficulty=${difficulty}`)
+  const difficultiesUrl = buildUrl(difficulties, "&difficulties=");
+  const themesUrl = buildUrl(themes, "&themes=");
+
+  await fetch(`${URL}${themesUrl}${difficultiesUrl}`)
     .then((res) => {
-      console.log(res);
       if (!res.ok) {
         createErrorMsg();
         return;

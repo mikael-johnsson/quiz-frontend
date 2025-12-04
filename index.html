@@ -14,14 +14,15 @@
         <fieldset>
           <label for="theme-input">Sök på tema:</label>
           <input type="text" id="theme-input" placeholder="Sverige" />
+          <select name="themes" id="themes-dropdown" multiple></select>
         </fieldset>
         <fieldset>
           <legend>Select difficulty:</legend>
-          <input type="radio" value="easy" name="difficulty" />
+          <input type="checkbox" value="easy" name="difficulty" />
           <label for="easy">Easy</label>
-          <input type="radio" value="medium" name="difficulty" />
+          <input type="checkbox" value="medium" name="difficulty" />
           <label for="medium">Medium</label>
-          <input type="radio" value="hard" name="difficulty" />
+          <input type="checkbox" value="hard" name="difficulty" />
           <label for="hard">Hard</label>
         </fieldset>
         <button id="fetch-button">Hämta frågor</button>

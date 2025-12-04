@@ -25,7 +25,6 @@ export const createErrorMsg = () => {
   const questionsContainer = document.getElementById("questionsContainer");
   console.log(questionsContainer);
 
-  // why does these two lines not run when theres an 404?
   if (questionsContainer) {
     questionsContainer.innerHTML = "Hittade inga frågor, testa en ny sökning!";
   }
