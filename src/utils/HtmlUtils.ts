@@ -78,3 +78,5 @@ export const clearSearchMsg = () => {
     messageContainer.innerHTML = "";
   }
 };
+
+export const getThemeOptions = () => {};

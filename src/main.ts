@@ -2,6 +2,7 @@ import { getData } from "./services/serviceBase";
 import "./scss/main.scss";
 import { checkChosenDifficulty } from "./utils/checkChosenDifficulty";
 import { createSearchMsg } from "./utils/HtmlUtils";
+import { getQuestions } from "./services/questionService";
 
 //move these
 const BASE_URL = "http://quiz-backend-one-alpha.vercel.app/api/questions?";
@@ -16,7 +17,7 @@ searchForm?.addEventListener("submit", (e) => {
   const themes: string[] = [input.value];
   const difficulties: string[] = checkChosenDifficulty();
 
-  getData(themes, difficulties, BASE_URL);
+  getQuestions(themes, difficulties, BASE_URL);
   createSearchMsg(themes, difficulties);
 });
 
