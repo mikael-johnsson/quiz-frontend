@@ -7,9 +7,6 @@ import { createSearchMsg } from "./utils/HtmlUtils";
 const BASE_URL = "http://quiz-backend-one-alpha.vercel.app/api/questions?";
 const DEV_URL = "http://localhost:3000/api/questions?";
 
-const themes = ["sport", "sverige", "historia", "kultur"];
-const difficulties = ["easy", "hard", "medium"];
-
 const searchForm = document.getElementById("search-form");
 
 searchForm?.addEventListener("submit", (e) => {
