@@ -1,4 +1,6 @@
+import { getData } from "../services/serviceBase";
 import type { Question } from "../types/question";
+import type { QuestionResponse } from "../types/questionResponse";
 
 export const createHtml = (question: Question) => {
   const questionsContainer = document.getElementById("questionsContainer");
@@ -79,4 +81,27 @@ export const clearSearchMsg = () => {
   }
 };
 
-export const getThemeOptions = () => {};
+export const getThemeOptions = async (URL: string) => {
+  let optionThemes: string[] = [];
+  const response = await getData(URL, "", "");
+  const data: QuestionResponse = await response.json();
+  data.questions?.forEach((question: Question) => {
+    question.themes?.forEach((theme) => {
+      if (!optionThemes.includes(theme)) optionThemes.push(theme);
+    });
+  });
+
+  addSelectOptions(optionThemes);
+};
+
+export const addSelectOptions = (themes: string[]) => {
+  const select = document.getElementById("themes-dropdown");
+
+  themes.forEach((theme) => {
+    const option = document.createElement("option");
+    option.value = theme;
+    option.innerText = theme;
+
+    select?.appendChild(option);
+  });
+};

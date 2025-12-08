@@ -1,8 +1,8 @@
-import { getData } from "./services/serviceBase";
 import "./scss/main.scss";
-import { checkChosenDifficulty } from "./utils/checkChosenDifficulty";
-import { createSearchMsg } from "./utils/HtmlUtils";
+import { checkChosenDifficulty } from "./utils/checkChosenDifficulties";
+import { createSearchMsg, getThemeOptions } from "./utils/HtmlUtils";
 import { getQuestions } from "./services/questionService";
+import { checkChoseThemes } from "./utils/checkChosenThemes";
 
 //move these
 const BASE_URL = "http://quiz-backend-one-alpha.vercel.app/api/questions?";
@@ -14,12 +14,12 @@ searchForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const input = document.getElementById("theme-input") as HTMLInputElement;
-  const themes: string[] = [input.value];
+  const themes: string[] = checkChoseThemes();
   const difficulties: string[] = checkChosenDifficulty();
 
+  checkChoseThemes();
   getQuestions(themes, difficulties, BASE_URL);
   createSearchMsg(themes, difficulties);
 });
 
-// för select values kan man faktiskt göra ett API call för alla frågor,
-// ´loopa ur deras themes och sen sätta de i selecten
+getThemeOptions(BASE_URL);

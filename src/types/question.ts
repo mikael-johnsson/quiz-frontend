@@ -3,7 +3,7 @@ export type Question = {
   answer: string;
   questionType: string;
   isApproved: boolean;
-  theme: string[];
+  themes: string[];
   difficultyLevel: string;
   createdBy: string;
   createdWhen: string;
