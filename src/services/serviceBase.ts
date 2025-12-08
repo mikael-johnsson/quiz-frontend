@@ -1,6 +1,6 @@
 import type { QuestionResponse } from "../types/questionResponse";
 import { buildUrl } from "../utils/buildUrl";
-import { clearHtml, createErrorMsg, createHtml } from "../utils/HtmlUtils";
+import { clearQuestions, createErrorMsg, createHtml } from "../utils/HtmlUtils";
 
 export const getData = async (
   themes: string[],
@@ -21,7 +21,7 @@ export const getData = async (
     })
     .then((data: QuestionResponse) => {
       if (!data) return;
-      clearHtml();
+      clearQuestions();
       data.questions.forEach((question) => createHtml(question));
     });
 };

@@ -5,7 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/main.ts" defer></script>
-
     <title>quiz-frontend</title>
   </head>
   <body>
@@ -14,7 +13,14 @@
         <fieldset>
           <label for="theme-input">Sök på tema:</label>
           <input type="text" id="theme-input" placeholder="Sverige" />
-          <select name="themes" id="themes-dropdown" multiple></select>
+          <select name="themes" id="themes-dropdown" multiple>
+            <option value="">test</option>
+            <option value="">test2</option>
+            <option value="">test2</option>
+            <option value="">test3</option>
+            <option value="">test4</option>
+            <option value="">test5</option>
+          </select>
         </fieldset>
         <fieldset>
           <legend>Select difficulty:</legend>
@@ -27,7 +33,7 @@
         </fieldset>
         <button id="fetch-button">Hämta frågor</button>
       </form>
-
+      <div id="message-container"></div>
       <div id="questionsContainer"></div>
     </main>
   </body>
