@@ -1,4 +1,4 @@
-export const checkChoseThemes = () => {
+export const checkChosenThemes = () => {
   let selectedThemes: string[] = [];
   const select = document.getElementById(
     "themes-dropdown"
