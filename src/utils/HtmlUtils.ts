@@ -23,9 +23,9 @@ export const clearQuestions = () => {
   }
 };
 
-export const createErrorMsg = () => {
+export const createErrorMsg = async (msg: string) => {
   const questionsContainer = document.getElementById("questionsContainer");
-  console.log(questionsContainer);
+  console.log(msg);
 
   if (questionsContainer) {
     questionsContainer.innerHTML = "Hittade inga frågor, testa en ny sökning!";

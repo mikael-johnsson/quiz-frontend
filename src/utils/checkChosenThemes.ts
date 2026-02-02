@@ -1,14 +1,14 @@
 export const checkChosenThemes = () => {
-  let selectedThemes: string[] = [];
+  let themes: string[] = [];
   const select = document.getElementById(
-    "themes-dropdown"
+    "themes-dropdown",
   ) as HTMLSelectElement;
 
   for (let option of select.options) {
     if (option.selected) {
-      selectedThemes.push(option.value);
+      themes.push(option.value);
     }
   }
 
-  return selectedThemes;
+  return themes;
 };

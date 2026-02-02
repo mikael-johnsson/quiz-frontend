@@ -1,14 +1,14 @@
 export const checkChosenDifficulty = () => {
   const checkboxes = document.getElementsByName("difficulty");
 
-  let difficulty: string[] = [];
+  let difficulties: string[] = [];
 
   checkboxes.forEach((box) => {
     const checkbox = box as HTMLInputElement;
     if (checkbox.checked) {
-      difficulty.push(checkbox.value);
+      difficulties.push(checkbox.value);
     }
   });
 
-  return difficulty;
+  return difficulties;
 };
