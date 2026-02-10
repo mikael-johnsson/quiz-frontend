@@ -1,0 +1,65 @@
+@use "variables" as v;
+
+// HEADER
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid v.$accent;
+  i {
+    font-size: 2rem;
+  }
+  div {
+    margin: auto auto;
+  }
+  nav {
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    background-color: v.$sec-bg-color;
+    opacity: 0.85; // random number
+    ul {
+      list-style-type: none;
+      text-align: left;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .headerHidden {
+    display: none !important;
+  }
+}
+
+// MAIN
+h1 {
+  text-align: center;
+}
+
+main {
+  form {
+    display: grid;
+    grid-template-areas:
+      "a a a b b b"
+      ". . c c . .";
+    gap: 1rem;
+    #themes-fieldset {
+      grid-area: a;
+    }
+    #difficulty-fieldset {
+      grid-area: b;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      div {
+        display: flex;
+        gap: 3rem;
+      }
+    }
+    #fetch-button {
+      grid-area: c;
+    }
+  }
+}

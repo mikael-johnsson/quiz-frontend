@@ -15,8 +15,8 @@ searchForm?.addEventListener("submit", (e) => {
   const themes: string[] = checkChosenThemes();
   const difficulties: string[] = checkChosenDifficulty();
 
-  getQuestions(themes, difficulties, DEV_URL);
+  getQuestions(themes, difficulties, BASE_URL);
   createSearchMsg(themes, difficulties);
 });
 
-getThemeOptions(DEV_URL);
+getThemeOptions(BASE_URL);

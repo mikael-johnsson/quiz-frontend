@@ -8,25 +8,58 @@
     <title>quiz-frontend</title>
   </head>
   <body>
+    <header>
+      <div>
+        <h2>Quiz Logo</h2>
+      </div>
+      <div>
+        <i class="fa-sharp-duotone fa-solid fa-bars" id="hamburgerButton"></i>
+        <nav id="hamburgerMenu" class="headerHidden">
+          <ul>
+            <li>HEM</li>
+            <li>PROFIL</li>
+            <li>SKAPA FRÅGA</li>
+            <li>OM</li>
+            <li>LOGGA IN / REGISTRERA DIG</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main id="main">
-      <form id="search-form">
-        <fieldset>
-          <label for="theme-input">Sök på tema:</label>
-          <select name="themes" id="themes-dropdown" multiple></select>
-        </fieldset>
-        <fieldset>
-          <legend>Select difficulty:</legend>
-          <input type="checkbox" value="easy" name="difficulty" />
-          <label for="easy">Easy</label>
-          <input type="checkbox" value="medium" name="difficulty" />
-          <label for="medium">Medium</label>
-          <input type="checkbox" value="hard" name="difficulty" />
-          <label for="hard">Hard</label>
-        </fieldset>
-        <button id="fetch-button">Hämta frågor</button>
-      </form>
-      <div id="message-container"></div>
-      <div id="questionsContainer"></div>
+      <!-- LANDING PAGE SECTION -->
+      <section id="landing-section">
+        <h1>SKAPA QUIZ DIREKT!</h1>
+        <form id="search-form">
+          <fieldset id="themes-fieldset">
+            <legend>Välj teman:</legend>
+            <select name="themes" id="themes-dropdown" multiple></select>
+          </fieldset>
+          <fieldset id="difficulty-fieldset">
+            <legend>Välj svårighetsgrad:</legend>
+            <div class="input-container">
+              <input type="checkbox" value="easy" name="difficulty" />
+              <label for="easy">Lätt</label>
+            </div>
+            <div class="input-container">
+              <input type="checkbox" value="medium" name="difficulty" />
+              <label for="medium">Medel</label>
+            </div>
+            <div class="input-container">
+              <input type="checkbox" value="hard" name="difficulty" />
+              <label for="hard">Svårt</label>
+            </div>
+          </fieldset>
+          <button id="fetch-button">Hämta frågor</button>
+        </form>
+        <div id="message-container"></div>
+        <div id="questionsContainer"></div>
+      </section>
     </main>
+
+    <!-- Font Awesome Link -->
+    <script
+      src="https://kit.fontawesome.com/7dd7da429f.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

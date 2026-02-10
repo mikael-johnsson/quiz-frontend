@@ -1,1 +1,12 @@
 @use "forms";
+@use "header";
+@use "components";
+@use "questions";
+@use "variables" as v;
+
+html,
+body {
+  box-sizing: border-box;
+  color: v.$prim-text-color;
+  background-color: v.$prim-bg-color;
+}

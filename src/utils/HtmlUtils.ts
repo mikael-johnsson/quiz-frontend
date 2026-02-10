@@ -7,12 +7,21 @@ export const createHtml = (question: Question) => {
   const questionDiv = document.createElement("div");
   const title = document.createElement("p");
   const answer = document.createElement("span");
+  const themeContainer = document.createElement("div");
+  themeContainer.className = "theme-container";
+
+  question.themes.forEach((theme) => {
+    const themeEl = document.createElement("span");
+    themeEl.innerHTML = theme.toUpperCase();
+    themeContainer.appendChild(themeEl);
+  });
 
   title.innerHTML = question.question;
   answer.innerHTML = question.answer;
 
   questionDiv.appendChild(title);
   questionDiv.appendChild(answer);
+  questionDiv.appendChild(themeContainer);
   questionsContainer?.appendChild(questionDiv);
 };
 
@@ -100,7 +109,7 @@ export const addSelectOptions = (themes: string[]) => {
   themes.forEach((theme) => {
     const option = document.createElement("option");
     option.value = theme;
-    option.innerText = theme;
+    option.innerText = theme.toUpperCase();
 
     select?.appendChild(option);
   });

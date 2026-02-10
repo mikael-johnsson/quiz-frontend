@@ -1,3 +1,15 @@
+@use "variables" as v;
+
 select {
-  width: 100px;
+  width: 14rem;
+  padding: 0 1rem;
+
+  option:checked {
+    background-color: v.$accent;
+  }
+}
+
+#themes-dropdown {
+  background-color: v.$prim-text-color;
+  color: v.$prim-bg-color;
 }
