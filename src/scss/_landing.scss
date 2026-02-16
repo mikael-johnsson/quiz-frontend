@@ -1,0 +1,88 @@
+@use "variables" as v;
+
+.landing {
+  margin-top: 2rem;
+}
+
+.landing__headline {
+  text-align: center;
+  font-size: 2.6rem;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 2rem;
+}
+
+.quizForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+.quizForm__label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.quizForm__checks {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.quizForm__submit {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 1rem;
+}
+
+// Custom checkbox
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.check__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.check__box {
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid v.$prim-text-color;
+  border-radius: 3px;
+  display: inline-block;
+  background: transparent;
+  position: relative;
+}
+
+.check__input:focus-visible + .check__box {
+  outline: 3px solid rgba(v.$accent, 0.6);
+  outline-offset: 3px;
+}
+
+.check__input:checked + .check__box {
+  background: v.$prim-text-color;
+  border-color: v.$prim-text-color;
+}
+
+// Containers used by scripts
+#message-container,
+#questionsContainer {
+  max-width: 32rem;
+  margin: 1.5rem auto 0;
+}
+

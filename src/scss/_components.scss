@@ -1,8 +1,14 @@
 @use "variables" as v;
+
 button {
-  width: 9rem;
-  height: 3rem;
+  width: 10.5rem;
+  height: 3.2rem;
   background-color: v.$prim-text-color;
   color: v.$prim-bg-color;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  cursor: pointer;
 }
