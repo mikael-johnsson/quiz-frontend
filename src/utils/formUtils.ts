@@ -1,12 +1,10 @@
-import { config } from "dotenv";
 import { getQuestions } from "../services/questionService";
 import { checkChosenDifficulty } from "./checkChosenDifficulties";
 import { checkChosenThemes } from "./checkChosenThemes";
 import { createSearchMsg, getThemeOptions } from "./HtmlUtils";
 
-config();
-const BASE_URL = process.env.BASE_URL || "";
-const DEV_URL = process.env.DEV_URL || "";
+const BASE_URL = "http://quiz-backend-one-alpha.vercel.app/api/questions?";
+const DEV_URL = "http://localhost:3000/api/questions?";
 
 const searchForm = document.getElementById("search-form");
 

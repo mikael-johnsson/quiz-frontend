@@ -4,25 +4,56 @@ import type { QuestionResponse } from "../types/questionResponse";
 
 export const createHtml = (question: Question) => {
   const questionsContainer = document.getElementById("questionsContainer");
-  const questionDiv = document.createElement("div");
+  if (!questionsContainer) return;
+
+  // Reuse or create the quiz result container
+  let card = questionsContainer.querySelector<HTMLDivElement>(".quizResult");
+
+  if (!card) {
+    card = document.createElement("div");
+    card.className = "quizResult";
+
+    const headerRow = document.createElement("div");
+    headerRow.className = "quizResult__row quizResult__row--headings";
+
+    const questionHeading = document.createElement("p");
+    questionHeading.className = "quizResult__heading";
+    questionHeading.innerHTML = "Fråga";
+
+    const answerHeading = document.createElement("p");
+    answerHeading.className = "quizResult__heading";
+    answerHeading.innerHTML = "Svar";
+
+    headerRow.appendChild(questionHeading);
+    headerRow.appendChild(answerHeading);
+
+    card.appendChild(headerRow);
+
+    const list = document.createElement("div");
+    list.className = "quizResult__list";
+    card.appendChild(list);
+
+    questionsContainer.appendChild(card);
+  }
+
+  const list = card.querySelector<HTMLDivElement>(".quizResult__list");
+  if (!list) return;
+
+  const row = document.createElement("div");
+  row.className = "quizResult__row";
+
   const title = document.createElement("p");
-  const answer = document.createElement("span");
-  const themeContainer = document.createElement("div");
-  themeContainer.className = "theme-container";
-
-  question.themes.forEach((theme) => {
-    const themeEl = document.createElement("span");
-    themeEl.innerHTML = theme.toUpperCase();
-    themeContainer.appendChild(themeEl);
-  });
-
+  title.className = "quizResult__question";
   title.innerHTML = question.question;
+
+  const answer = document.createElement("p");
+  answer.className = "quizResult__answer";
   answer.innerHTML = question.answer;
 
-  questionDiv.appendChild(title);
-  questionDiv.appendChild(answer);
-  questionDiv.appendChild(themeContainer);
-  questionsContainer?.appendChild(questionDiv);
+  row.appendChild(title);
+  row.appendChild(answer);
+
+  list.appendChild(row);
 };
 
 export const clearQuestions = () => {
@@ -44,43 +75,74 @@ export const createErrorMsg = async (msg: string) => {
 export const createSearchMsg = (themes: string[], difficulties: string[]) => {
   clearSearchMsg();
 
-  const container = document.createElement("div");
+  const msgContainer = document.getElementById("message-container");
+  if (!msgContainer) return;
 
-  let themeMsg = document.createElement("p");
-  themeMsg.innerHTML = "You have searched for themes:";
-  let difficultiesMsg = document.createElement("p");
-  difficultiesMsg.innerHTML = "You have searched for difficulties:";
+  const card = document.createElement("div");
+  card.className = "quizResult quizResult--summary";
+
+  const headerRow = document.createElement("div");
+  headerRow.className = "quizResult__row quizResult__row--headings";
+
+  const themesHeading = document.createElement("p");
+  themesHeading.className = "quizResult__heading";
+  themesHeading.innerHTML = "Teman";
+
+  const difficultiesHeading = document.createElement("p");
+  difficultiesHeading.className = "quizResult__heading";
+  difficultiesHeading.innerHTML = "Svårighetsgrad";
+
+  headerRow.appendChild(themesHeading);
+  headerRow.appendChild(difficultiesHeading);
+
+  const list = document.createElement("div");
+  list.className = "quizResult__list";
+
+  const row = document.createElement("div");
+  row.className = "quizResult__row";
+
+  const themesCol = document.createElement("div");
+  const difficultiesCol = document.createElement("div");
 
   const themesUl = document.createElement("ul");
   const difficultiesUl = document.createElement("ul");
 
   if (themes.length === 0) {
-    themeMsg.innerHTML = "You have not specified any themes";
+    const li = document.createElement("li");
+    li.innerHTML = "Inga teman valda";
+    themesUl.appendChild(li);
   } else {
     themes.forEach((theme) => {
-      let li = document.createElement("li");
+      const li = document.createElement("li");
       li.innerHTML = theme;
       themesUl.appendChild(li);
     });
   }
 
   if (difficulties.length === 0 || difficulties.length === 3) {
-    difficultiesMsg.innerHTML = "You have chosen all difficulties";
+    const li = document.createElement("li");
+    li.innerHTML = "Alla svårighetsgrader";
+    difficultiesUl.appendChild(li);
   } else {
     difficulties.forEach((difficulty) => {
-      let li = document.createElement("li");
+      const li = document.createElement("li");
       li.innerHTML = difficulty;
       difficultiesUl.appendChild(li);
     });
   }
 
-  container.appendChild(themeMsg);
-  container.appendChild(themesUl);
-  container.appendChild(difficultiesMsg);
-  container.appendChild(difficultiesUl);
+  themesCol.appendChild(themesUl);
+  difficultiesCol.appendChild(difficultiesUl);
 
-  const msgContainer = document.getElementById("message-container");
-  msgContainer?.appendChild(container);
+  row.appendChild(themesCol);
+  row.appendChild(difficultiesCol);
+
+  list.appendChild(row);
+
+  card.appendChild(headerRow);
+  card.appendChild(list);
+
+  msgContainer.appendChild(card);
 };
 
 export const clearSearchMsg = () => {
