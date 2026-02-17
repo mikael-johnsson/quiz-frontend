@@ -15,8 +15,7 @@
         id="hamburgerButton"
         class="app-header__menuButton"
         type="button"
-        aria-label="Öppna meny"
-      >
+        aria-label="Öppna meny">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
 
@@ -33,72 +32,75 @@
     <main id="main">
       <!-- LANDING PAGE SECTION -->
       <section id="landing-section" class="landing">
-        <h1 class="landing__headline">Skapa ditt quiz direkt!</h1>
+        <aside class="landing__aside">
+          <h2 class="landing__asideHeadline">Hur fungerar det?</h2>
+          <p class="landing__asideText">
+            Välj dina teman, välj dina svårighetsgrader och generera ditt quiz!
+            Alla frågor är faktakollade av riktiga användare.
+          </p>
+        </aside>
 
-        <form id="search-form" class="quizForm">
-          <div class="quizForm__col">
-            <h3 class="quizForm__label">Teman</h3>
-            <select name="themes" id="themes-dropdown" multiple></select>
-          </div>
-
-          <div class="quizForm__col">
-            <h3 class="quizForm__label">Svårighetsgrad</h3>
-
-            <div class="quizForm__checks">
-              <label class="check">
-                <input
-                  id="easy"
-                  class="check__input"
-                  type="checkbox"
-                  value="easy"
-                  name="difficulty"
-                />
-                <span class="check__box" aria-hidden="true"></span>
-                <span class="check__text">Enkelt</span>
-              </label>
-
-              <label class="check">
-                <input
-                  id="medium"
-                  class="check__input"
-                  type="checkbox"
-                  value="medium"
-                  name="difficulty"
-                />
-                <span class="check__box" aria-hidden="true"></span>
-                <span class="check__text">Medium</span>
-              </label>
-
-              <label class="check">
-                <input
-                  id="hard"
-                  class="check__input"
-                  type="checkbox"
-                  value="hard"
-                  name="difficulty"
-                />
-                <span class="check__box" aria-hidden="true"></span>
-                <span class="check__text">Svårt</span>
-              </label>
+        <div class="landing__content">
+          <h1 class="landing__headline">Skapa ditt quiz direkt!</h1>
+          <form id="search-form" class="quizForm">
+            <div class="quizForm__col">
+              <h3 class="quizForm__label">Teman</h3>
+              <select name="themes" id="themes-dropdown" multiple></select>
             </div>
-          </div>
 
-          <button id="fetch-button" class="quizForm__submit" type="submit">
-            Generera quiz
-          </button>
-        </form>
+            <div class="quizForm__col">
+              <h3 class="quizForm__label">Svårighetsgrad</h3>
+
+              <div class="quizForm__checks">
+                <label class="check">
+                  <input
+                    id="easy"
+                    class="check__input"
+                    type="checkbox"
+                    value="easy"
+                    name="difficulty" />
+                  <span class="check__box" aria-hidden="true"></span>
+                  <span class="check__text">Enkelt</span>
+                </label>
+
+                <label class="check">
+                  <input
+                    id="medium"
+                    class="check__input"
+                    type="checkbox"
+                    value="medium"
+                    name="difficulty" />
+                  <span class="check__box" aria-hidden="true"></span>
+                  <span class="check__text">Medium</span>
+                </label>
+
+                <label class="check">
+                  <input
+                    id="hard"
+                    class="check__input"
+                    type="checkbox"
+                    value="hard"
+                    name="difficulty" />
+                  <span class="check__box" aria-hidden="true"></span>
+                  <span class="check__text">Svårt</span>
+                </label>
+              </div>
+            </div>
+
+            <button id="fetch-button" class="quizForm__submit" type="submit">
+              Generera quiz
+            </button>
+          </form>
+        </div>
 
         <div id="message-container"></div>
         <div id="questionsContainer"></div>
       </section>
-
-      
     </main>
 
     <!-- Font Awesome Link -->
     <script
       src="https://kit.fontawesome.com/7dd7da429f.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </body>
 </html>

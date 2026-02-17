@@ -2,6 +2,17 @@
 
 .landing {
   margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.landing__content {
+  // grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 32rem;
+  justify-self: center;
 }
 
 .landing__headline {
@@ -13,13 +24,31 @@
   margin-bottom: 2rem;
 }
 
+//ASIDE
+
+.landing__aside {
+  background-color: v.$prim-text-color;
+  color: v.$prim-bg-color;
+  border-radius: 8px;
+  padding: 1.5rem 2.6rem;
+  max-width: 32rem;
+  margin: 0 auto 1.5rem;
+
+  h2 {
+    margin-bottom: 1.3rem;
+    font-size: 1.3rem;
+  }
+}
+
+//QUIZ FORM
+
 .quizForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
   align-items: start;
   max-width: 26rem;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .quizForm__label {
@@ -71,7 +100,7 @@
 
 .check__input:focus-visible + .check__box {
   outline: 3px solid rgba(v.$accent, 0.6);
-  outline-offset: 3px;    
+  outline-offset: 3px;
 }
 
 .check__input:checked + .check__box {
@@ -101,7 +130,20 @@
 // Containers used by scripts
 #message-container,
 #questionsContainer {
+  width: 100%;
   max-width: 32rem;
-  margin: 1.5rem auto 0;
+  margin: 0;
+  justify-self: center;
 }
 
+@media (min-width: 768px) {
+}
+
+@media screen and (min-width: 991px) {
+  .landing__aside {
+    position: absolute;
+    left: 2rem;
+    width: 13rem;
+    padding: 1.5rem 0.9rem;
+  }
+}
