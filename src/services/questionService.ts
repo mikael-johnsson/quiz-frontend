@@ -1,6 +1,6 @@
 import type { QuestionResponse } from "../types/questionResponse";
 import { buildUrl } from "../utils/buildUrl";
-import { clearQuestions, createErrorMsg, createHtml } from "../utils/HtmlUtils";
+import { clearQuestions, createErrorMsg, createQuestions } from "../utils/HtmlUtils";
 import { getData } from "./serviceBase";
 
 export const getQuestions = async (
@@ -25,6 +25,6 @@ export const getQuestions = async (
     .then((data: QuestionResponse) => {
       if (!data) return;
       clearQuestions();
-      data.questions.forEach((question) => createHtml(question));
+      createQuestions(data.questions);
     });
 };

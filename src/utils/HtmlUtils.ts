@@ -2,7 +2,7 @@ import { getData } from "../services/serviceBase";
 import type { Question } from "../types/question";
 import type { QuestionResponse } from "../types/questionResponse";
 
-export const createHtml = (question: Question) => {
+export const createQuestions = (questions: Question[]) => {
   const questionsContainer = document.getElementById("questionsContainer");
   if (!questionsContainer) return;
 
@@ -39,6 +39,20 @@ export const createHtml = (question: Question) => {
   const list = card.querySelector<HTMLDivElement>(".quizResult__list");
   if (!list) return;
 
+  questions.forEach((question) => createQuestionCard(question, list));
+
+  const clearButton = document.createElement("button");
+  clearButton.className = "quizResult__clear";
+  clearButton.innerHTML = "Rensa quiz";
+  clearButton.addEventListener("click", () => {
+    clearQuestions();
+    clearSearchMsg();
+  });
+
+  questionsContainer.appendChild(clearButton);
+};
+
+export const createQuestionCard = (question: Question, list: HTMLDivElement) => {
   const row = document.createElement("div");
   row.className = "quizResult__row";
 
@@ -107,6 +121,9 @@ export const createSearchMsg = (themes: string[], difficulties: string[]) => {
   const themesUl = document.createElement("ul");
   const difficultiesUl = document.createElement("ul");
 
+  themesUl.className = "quizResult__ul";
+  difficultiesUl.className = "quizResult__ul";
+
   if (themes.length === 0) {
     const li = document.createElement("li");
     li.innerHTML = "Inga teman valda";
@@ -114,7 +131,7 @@ export const createSearchMsg = (themes: string[], difficulties: string[]) => {
   } else {
     themes.forEach((theme) => {
       const li = document.createElement("li");
-      li.innerHTML = theme;
+      li.innerHTML = theme.toUpperCase();
       themesUl.appendChild(li);
     });
   }
@@ -126,7 +143,7 @@ export const createSearchMsg = (themes: string[], difficulties: string[]) => {
   } else {
     difficulties.forEach((difficulty) => {
       const li = document.createElement("li");
-      li.innerHTML = difficulty;
+      li.innerHTML = difficulty.toUpperCase();
       difficultiesUl.appendChild(li);
     });
   }
